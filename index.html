@@ -9,7 +9,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 40rem;
+            height: 80vh;
             background-color: pink;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -108,7 +108,7 @@
         function accept() {
             const hearts = document.createElement('div');
             hearts.classList.add('hearts');
-            hearts.innerHTML = '❤️❤️❤️❤️❤️❤️';
+            hearts.innerHTML = '❤️❤️❤️';
             document.body.appendChild(hearts);
             setTimeout(() => hearts.remove(), 2000);
             
