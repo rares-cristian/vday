@@ -126,12 +126,12 @@
             }
 
             const noBtn = document.getElementById('noBtn');
-            let maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            let maxX = window.innerWidth - noBtn.offsetWidth - 100;
             let maxY = window.innerHeight - noBtn.offsetHeight;
 
 
             let x = Math.floor(Math.random() * maxX);
-            let y = Math.floor(Math.random() * 400);
+            let y = Math.floor(Math.random() * 200);
 
         console.log(x);
         console.log(y);
@@ -147,7 +147,7 @@
 
         document.getElementById('noBtn').addEventListener('mouseover', moveNo);
         document.getElementById('noBtn').addEventListener('click', moveNo);
-        document.getElementById('noBtn').addEventListener('touchstart', moveNo);
+      // document.getElementById('noBtn').addEventListener('touchstart', moveNo);
 
 
     </script>
