@@ -96,7 +96,7 @@
         <div class="forced-message" id="forcedMessage">Nu poți să mă refuzi! 😈❤️</div>
         <h1>Vrei să fii partenera mea de Valentine's Day? ❤️</h1>
         <div class="buttons">
-            <button class="yes" onclick="accept()">Da 😊</button>
+            <button class="yes" id="yesBtn" onclick="accept();accept_display()">Da 😊</button>
             <button class="no" id="noBtn">Nu 😢</button>
         </div>
         <div class="message" id="message">YUPYYYY ❤️🥰</div>
@@ -107,8 +107,6 @@
 
         function accept() {
             const hearts = document.createElement('div');
-            document.getElementById('noBtn').style.display = 'none';
-            document.getElementById('forcedMessage').style.display = 'none';
             hearts.classList.add('hearts');
             hearts.innerHTML = '❤️❤️❤️';
             document.body.appendChild(hearts);
@@ -117,8 +115,26 @@
             document.getElementById('message').style.display = 'block';
         }
 
-        function moveNo() {           
+        function accept_display() {
+            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('forcedMessage').style.display = 'none';
+        }
+
+
+       function disable() {
+            let button = document.getElementById("yesBtn");
+            
+            button.disabled = true;
+            
+            setTimeout(function(){
+                button.disabled = false
+            }, 1000);
+        }
+
+        function moveNo() {
+            disable();           
             noClickCount++;
+           
 
             if (noClickCount >= 5) {
                 document.getElementById('noBtn').style.display = 'none';
@@ -148,7 +164,7 @@
 
         document.getElementById('noBtn').addEventListener('mouseover', moveNo);
         document.getElementById('noBtn').addEventListener('click', moveNo);
-      // document.getElementById('noBtn').addEventListener('touchstart', moveNo);
+        document.getElementById('noBtn').addEventListener('touchstart', moveNo);
 
 
     </script>
