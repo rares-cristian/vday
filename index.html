@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .forced-message {
+            display: none;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        h1 {
+            color: red;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+        }
+        .hearts {
+            position: fixed;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 50px;
+            opacity: 0;
+            animation: floatUp 2s ease-in-out;
+        }
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffcccc;
+            border-radius: 10px;
+            font-size: 18px;
+            color: red;
+            font-weight: bold;
+        }
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -100px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="forced-message" id="forcedMessage">Nu poți să mă refuzi! 😈❤️</div>
+        <h1>Vrei să fii partenera mea de Valentine's Day? ❤️</h1>
+        <div class="buttons">
+            <button class="yes" onclick="accept()">Da 😊</button>
+            <button class="no" id="noBtn">Nu 😢</button>
+        </div>
+        <div class="message" id="message">Yay! Abia aștept! ❤️🥰</div>
+    </div>
+    
+    <script>
+        let noClickCount = 0;
+
+        function accept() {
+            const hearts = document.createElement('div');
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.dispaly = 'none';
+            hearts.classList.add('hearts');
+            hearts.innerHTML = '❤️❤️❤️';
+            document.body.appendChild(hearts);
+            setTimeout(() => hearts.remove(), 2000);
+            
+            document.getElementById('message').style.display = 'block';
+        }
+
+        function moveNo() {           
+            noClickCount++;
+
+            if (noClickCount >= 5) {
+                document.getElementById('noBtn').style.display = 'none';
+                document.getElementById('forcedMessage').style.display = 'block';
+                return;
+            }
+
+            const noBtn = document.getElementById('noBtn');
+            let maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            let maxY = window.innerHeight - noBtn.offsetHeight;
+
+
+            let x = Math.floor(Math.random() * maxX);
+            let y = Math.floor(Math.random() * 400);
+
+        console.log(x);
+        console.log(y);
+
+            if ((x < maxX) && (y < maxY)) {
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+            }
+
+        }
+
+
+        document.getElementById('noBtn').addEventListener('mouseover', moveNo);
+        document.getElementById('noBtn').addEventListener('click', moveNo);
+        document.getElementById('noBtn').addEventListener('touchstart', moveNo);
+
+
+    </script>
+</body>
+</html>
