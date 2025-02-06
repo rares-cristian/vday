@@ -13,6 +13,7 @@
             background-color: pink;
             font-family: Arial, sans-serif;
             text-align: center;
+              overflow: hidden;  overflow: hidden;
             flex-direction: column;
         }
         .container {
@@ -98,7 +99,7 @@
             <button class="yes" onclick="accept()">Da 😊</button>
             <button class="no" id="noBtn">Nu 😢</button>
         </div>
-        <div class="message" id="message">Yay! Abia aștept! ❤️🥰</div>
+        <div class="message" id="message">YUPYYYY ❤️🥰</div>
     </div>
     
     <script>
@@ -126,11 +127,11 @@
             }
 
             const noBtn = document.getElementById('noBtn');
-            let maxX = window.innerWidth - noBtn.offsetWidth - 100;
-            let maxY = window.innerHeight - noBtn.offsetHeight;
+            let maxX = window.innerWidth - noBtn.offsetWidth - 20;
+            let maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
 
-            let x = Math.floor(Math.random() * maxX);
+            let x = Math.floor(Math.random() * 200);
             let y = Math.floor(Math.random() * 200);
 
         console.log(x);
