@@ -13,7 +13,7 @@
             background-color: pink;
             font-family: Arial, sans-serif;
             text-align: center;
-              overflow: hidden;  overflow: hidden;
+            overflow: hidden;
             flex-direction: column;
         }
         .container {
@@ -107,8 +107,8 @@
 
         function accept() {
             const hearts = document.createElement('div');
-            const noBtn = document.getElementById('noBtn');
-            noBtn.style.dispaly = 'none';
+            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('forcedMessage').style.display = 'none';
             hearts.classList.add('hearts');
             hearts.innerHTML = '❤️❤️❤️';
             document.body.appendChild(hearts);
